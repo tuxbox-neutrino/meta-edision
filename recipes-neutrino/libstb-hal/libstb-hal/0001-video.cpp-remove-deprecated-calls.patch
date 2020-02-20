@@ -1,0 +1,71 @@
+From d304a3ec3011d16898102b89c99d8c8c67a58cc1 Mon Sep 17 00:00:00 2001
+From: Markus Volk <flk@linux.fritz.box>
+Date: Mon, 17 Feb 2020 20:32:40 +0100
+Subject: [PATCH] video.cpp: remove deprecated calls
+
+---
+ libarmbox/video.cpp | 44 ++++++++++----------------------------------
+ 1 file changed, 10 insertions(+), 34 deletions(-)
+
+diff --git a/libarmbox/video.cpp b/libarmbox/video.cpp
+index 76fdb2a..295b064 100644
+--- a/libarmbox/video.cpp
++++ b/libarmbox/video.cpp
+@@ -483,20 +483,8 @@ int cVideo::setAspectRatio(int aspect, int mode)
+ 
+ int cVideo::getAspectRatio(void)
+ {
+-	video_size_t s;
+-	if (fd == -1)
+-	{
+-		/* in movieplayer mode, fd is not opened -> fall back to procfs */
+-		int n = proc_get_hex(VMPEG_aspect[devnum]);
+-		return n;
+-	}
+-	if (fop(ioctl, VIDEO_GET_SIZE, &s) < 0)
+-	{
+-		hal_info("%s: VIDEO_GET_SIZE %m\n", __func__);
+-		return -1;
+-	}
+-	hal_debug("#%d: %s: %d\n", devnum, __func__, s.aspect_ratio);
+-	return s.aspect_ratio * 2 + 1;
++	int n = proc_get_hex(VMPEG_aspect[devnum]);
++	return n;
+ }
+ 
+ int cVideo::setCroppingMode(int /*vidDispMode_t format*/)
+@@ -811,26 +799,14 @@ static inline int rate2csapi(int rate)
+ 
+ void cVideo::getPictureInfo(int &width, int &height, int &rate)
+ {
+-	video_size_t s;
+-	int r;
+-	if (fd == -1)
+-	{
+-		/* in movieplayer mode, fd is not opened -> fall back to procfs */
+-		char buf[16];
+-		int n = proc_get(VMPEG_framerate[devnum], buf, 16);
+-		if (n > 0)
+-			sscanf(buf, "%i", &r);
+-		width  = proc_get_hex(VMPEG_xres[devnum]);
+-		height = proc_get_hex(VMPEG_yres[devnum]);
+-		rate   = rate2csapi(r);
+-		return;
+-	}
+-	ioctl(fd, VIDEO_GET_SIZE, &s);
+-	ioctl(fd, VIDEO_GET_FRAME_RATE, &r);
+-	rate = rate2csapi(r);
+-	height = s.h;
+-	width = s.w;
+-	hal_debug("#%d: %s: rate: %d, width: %d height: %d\n", devnum, __func__, rate, width, height);
++	int r; char buf[16];
++	int n = proc_get(VMPEG_framerate[devnum], buf, 16);
++	if (n > 0)
++		sscanf(buf, "%i", &r);
++	width  = proc_get_hex(VMPEG_xres[devnum]);
++	height = proc_get_hex(VMPEG_yres[devnum]);
++	rate   = rate2csapi(r);
++	return;
+ }
+ 
+ void cVideo::SetSyncMode(AVSYNC_TYPE mode)

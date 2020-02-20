@@ -1,0 +1,11 @@
+[Unit]
+Description=Mount Linuxrootfs Partition
+
+[Mount]
+What=/dev/mmcblk1p9
+Where=/mnt/rootfs4
+Type=ext4
+Options=nofail,noauto,rw
+
+[Install]
+WantedBy=multi-user.target
