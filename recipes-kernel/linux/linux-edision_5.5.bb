@@ -3,7 +3,6 @@ SECTION = "kernel"
 LICENSE = "GPLv2"
 
 KERNEL_RELEASE = "5.5"
-COMPATIBLE_MACHINE = "osmio4kplus"
 
 inherit kernel machine_kernel_pr
 

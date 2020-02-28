@@ -1,0 +1,21 @@
+From 3fae31bd447903ffd1b76cb2d11a069a196d68e6 Mon Sep 17 00:00:00 2001
+From: Markus Volk <f_l_k@t-online.de>
+Date: Thu, 27 Feb 2020 08:19:52 +0100
+Subject: [PATCH] rcinput.cpp: fix key repeat for osmio4k
+
+---
+ src/driver/rcinput.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/driver/rcinput.cpp b/src/driver/rcinput.cpp
+index d4083ba08..7f601cca4 100644
+--- a/src/driver/rcinput.cpp
++++ b/src/driver/rcinput.cpp
+@@ -1428,6 +1428,7 @@ void CRCInput::getMsg_us(neutrino_msg_t * msg, neutrino_msg_data_t * data, uint6
+ 						if ((now_pressed > last_keypress + repeat_block_generic) ||
+ 								/* accept all keys after time discontinuity: */
+ 								(now_pressed < last_keypress))
++							rc_last_repeat_key = trkey;
+ #endif
+ 						{
+ 							last_keypress = now_pressed;

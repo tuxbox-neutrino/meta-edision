@@ -1,4 +1,4 @@
 EXTRA_OECONF_append += " \
-        --with-boxtype=h7 \
+        --with-boxtype=armbox \
+        --with-boxmodel=${MACHINE} \
 "
-

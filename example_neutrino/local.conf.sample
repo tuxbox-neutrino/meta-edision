@@ -41,7 +41,7 @@ CONF_VERSION = "1"
 
 
 DISTRO = "tuxbox"     
-MACHINE ?= "osmio4kplus"
+MACHINE ?= "osmio4k"
 
 ### Image Settings
 
