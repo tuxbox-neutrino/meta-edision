@@ -22,7 +22,7 @@ IMAGE_OVERHEAD_FACTOR = "1.0"
 PACKAGECONFIG_GL_pn-qtbase = "gles2 eglfs linuxfb"
 PACKAGECONFIG_FB_pn-qtbase = " "
 
-PREFERRED_VERSION_linux-edision = "5.5"
+PREFERRED_VERSION_linux-edision = "5.5.16"
 
 MACHINE_FEATURES_BACKFILL_CONSIDERED = "rtc"
 

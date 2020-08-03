@@ -1,4 +1,4 @@
-A Layer for creating images designed for and including the neutrino settop box software. It builds with current yocto poky release "zeus" and probably also future releases. 
+A Layer for creating images designed for and including the neutrino settop box software. It builds with current yocto poky release "gatesgarth" and probably also future releases. 
 
 Lots of information has been taken from other layers or found elsewhere in the net. It contains recipes and settings for the "AirDigital Zgemma H7" Settop Box  
 

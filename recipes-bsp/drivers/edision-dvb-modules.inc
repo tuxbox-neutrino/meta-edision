@@ -7,8 +7,7 @@ PACKAGE_ARCH = "${MACHINE}"
 PV = "${KV}+${SRCDATE}"
 PR = "r0"
 
-SRC_URI = "https://github.com/edision-open/edision-driver/releases/download/${SRCDATE}/${MACHINE}-drivers-${KV}-${SRCDATE}.zip"
-
+SRC_URI = "https://github.com/edision-open/edision-driver/releases/download/${SRCDATE}/${MACHINE}-drivers-${KV}-${SRCDATE}_arm64.zip;name=arm64"
 S = "${WORKDIR}"
 
 INHIBIT_PACKAGE_STRIP = "1"
