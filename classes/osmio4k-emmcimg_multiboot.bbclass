@@ -56,7 +56,7 @@ IMAGE_CMD_osmio-emmc () {
     mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP_3 ::
     mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/STARTUP_4 ::
     dd conv=notrunc if=${WORKDIR}/boot.img of=${EMMC_IMAGE} seek=1 bs=$(expr ${IMAGE_ROOTFS_ALIGNMENT} \* 1024)
-    dd conv=notrunc if=${DEPLOY_DIR_IMAGE}/Image.gz of=${EMMC_IMAGE} seek=1 bs=$(expr ${IMAGE_ROOTFS_ALIGNMENT} \* 1024 + ${BOOT_PARTITION_SIZE} \* 1024)
+    dd conv=notrunc if=${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE} of=${EMMC_IMAGE} seek=1 bs=$(expr ${IMAGE_ROOTFS_ALIGNMENT} \* 1024 + ${BOOT_PARTITION_SIZE} \* 1024)
     dd if=${IMGDEPLOYDIR}/${IMAGE_BASENAME}-${MACHINE}.ext4 of=${EMMC_IMAGE} seek=1 bs=$(expr ${IMAGE_ROOTFS_ALIGNMENT} \* 1024 + ${BOOT_PARTITION_SIZE} \* 1024 + ${KERNEL_PARTITION_SIZE} \* 1024)
 }
 
@@ -64,7 +64,7 @@ image_packaging() {
     cd ${DEPLOY_DIR_IMAGE}
     mkdir -p ${IMAGEDIR}
     cp ${IMGDEPLOYDIR}/${IMAGE_BASENAME}-${MACHINE}.tar.bz2 ${IMAGEDIR}/rootfs.tar.bz2
-    cp Image.gz ${IMAGEDIR}/${KERNEL_FILE}
+    cp ${KERNEL_IMAGETYPE} ${IMAGEDIR}/${KERNEL_FILE}
     echo ${IMAGE_NAME} > ${IMAGEDIR}/imageversion
     zip ${IMAGE_NAME}_flavour_${FLAVOUR}_ofgwrite.zip ${IMAGEDIR}/*
     ln -sf ${IMAGE_NAME}_flavour_${FLAVOUR}_ofgwrite.zip ${IMAGENAME}_ofgwrite.zip

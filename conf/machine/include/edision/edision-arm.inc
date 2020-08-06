@@ -9,7 +9,6 @@ IMAGE_LINK = "${IMAGENAME}-${MACHINE}"
 MTD_ROOTFS = "mmcblk1p3"
 MTD_KERNEL = "mmcblk1p2"
 KERNEL_FILE = "kernel.bin"
-KERNEL_IMAGETYPE = "Image.gz"
 KERNEL_OUTPUT = "${KERNEL_IMAGETYPE}"
 KERNEL_CONSOLE = "ttyS0,115200n8"
 ROOTFS_FILE = "rootfs.tar.bz2"
@@ -33,7 +32,14 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
 
 BOOTLOGO_FILENAME = "splash.bin"
 
-DEFAULT_TUNE = "aarch64"
+# arm
+DEFAULTTUNE = "armv7vehf-neon-vfpv4"
+KERNEL_IMAGETYPE = "zImage"
 
-require conf/machine/include/arm/arch-armv8a.inc
+## arm64
+#DEFAULTTUNE = "aarch64"
+#KERNEL_IMAGETYPE = "Image.gz"
+
+require conf/machine/include/arm/arch-arm64.inc
+
 
