@@ -3,7 +3,10 @@ LICENSE = "CLOSED"
 
 inherit allarch
 
-SRC_URI = "http://source.mynonpublic.com/edision/firmware-qca6174.zip"
+SRC_URI = "http://source.mynonpublic.com/edision/firmware-qca6174.zip \
+	   file://rampatch_00440302.bin \
+	   file://nvm_00440302.bin \
+"
 
 S = "${WORKDIR}"
 PR = "r1"
@@ -19,7 +22,9 @@ do_install() {
     install -m 0644 board.bin ${D}${nonarch_base_libdir}/firmware/ath10k/QCA6174/hw3.0/board.bin
     install -m 0644 firmware-4.bin ${D}${nonarch_base_libdir}/firmware/ath10k/QCA6174/hw3.0/firmware-4.bin
 
-    install -d ${D}${nonarch_base_libdir}/firmware/wlan
+    install -d ${D}${nonarch_base_libdir}/firmware/wlan ${D}${nonarch_base_libdir}/firmware/qca
+    install -m 0644 rampatch_00440302.bin ${D}${nonarch_base_libdir}/firmware/qca/rampatch_00440302.bin
+    install -m 0644 nvm_00440302_eu.bin ${D}${nonarch_base_libdir}/firmware/qca/nvm_00440302.bin
     install -m 0644 bdwlan30.bin ${D}${nonarch_base_libdir}/firmware/bdwlan30.bin
     install -m 0644 otp30.bin ${D}${nonarch_base_libdir}/firmware/otp30.bin
     install -m 0644 qwlan30.bin ${D}${nonarch_base_libdir}/firmware/qwlan30.bin
