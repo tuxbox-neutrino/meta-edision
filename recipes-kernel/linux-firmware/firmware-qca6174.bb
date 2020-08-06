@@ -24,7 +24,7 @@ do_install() {
 
     install -d ${D}${nonarch_base_libdir}/firmware/wlan ${D}${nonarch_base_libdir}/firmware/qca
     install -m 0644 rampatch_00440302.bin ${D}${nonarch_base_libdir}/firmware/qca/rampatch_00440302.bin
-    install -m 0644 nvm_00440302_eu.bin ${D}${nonarch_base_libdir}/firmware/qca/nvm_00440302.bin
+    install -m 0644 nvm_00440302.bin ${D}${nonarch_base_libdir}/firmware/qca/nvm_00440302.bin
     install -m 0644 bdwlan30.bin ${D}${nonarch_base_libdir}/firmware/bdwlan30.bin
     install -m 0644 otp30.bin ${D}${nonarch_base_libdir}/firmware/otp30.bin
     install -m 0644 qwlan30.bin ${D}${nonarch_base_libdir}/firmware/qwlan30.bin

@@ -17,6 +17,7 @@ IMAGE_CLASSES += "osmio4k-emmcimg_multiboot"
 IMAGE_FSTYPES ?= "osmio-emmc"
 IMAGE_OVERHEAD_FACTOR = "1.0"
 
+DISTRO_FEATURES_append += "bluez5 pulseaudio"
 
 PACKAGECONFIG_GL_pn-qtbase = "gles2 eglfs linuxfb"
 PACKAGECONFIG_FB_pn-qtbase = " "
