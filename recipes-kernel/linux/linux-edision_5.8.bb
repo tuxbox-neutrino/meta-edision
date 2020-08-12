@@ -30,7 +30,6 @@ SRC_URI = "${KERNELORG_MIRROR}/linux/kernel/v5.x/linux-${PV}.tar.xz;name=kernel 
 	https://github.com/edision-open/edision-kernel/releases/download/v${PV}/edision-kernel-${PV}.patch.xz;apply=yes;name=kernelpatch \
 	file://defconfig \
 	file://findkerneldevice.sh \
-	file://multi_v7_defconfig \
 	"
 
 S = "${WORKDIR}/linux-${PV}"
@@ -43,12 +42,6 @@ KERNEL_IMAGETYPE_arm = "zImage"
 KERNEL_IMAGEDEST_arm = "tmp"
 
 FILES_${KERNEL_PACKAGE_NAME}-image_arm = "/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE} /${KERNEL_IMAGEDEST}/findkerneldevice.sh"
-
-kernel_do_configure_prepend_arm() {
-	if [ -f "${WORKDIR}/multi_v7_defconfig" ] && [ ! -f "${B}/.config" ]; then
-		cp "${WORKDIR}/multi_v7_defconfig" "${B}/.config"
-	fi
-}
 
 kernel_do_install_append_arm() {
         install -d ${D}/${KERNEL_IMAGEDEST}
