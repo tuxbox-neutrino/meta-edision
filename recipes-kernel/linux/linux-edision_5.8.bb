@@ -2,22 +2,21 @@ DESCRIPTION = "Linux kernel for ${MACHINE}"
 SECTION = "kernel"
 LICENSE = "GPLv2"
 
-KERNEL_RELEASE = "5.5"
+KERNEL_RELEASE = "5.8.0"
 
 inherit kernel machine_kernel_pr
 
-MACHINE_KERNEL_PR_append = ".3"
+MACHINE_KERNEL_PR_append = ".1"
 
 PROVIDES  = "virtual/kernel"
 RPROVIDES_${PN} = "virtual/kernel"
 
-SRC_URI[kernel.md5sum] = "e9fbbdd378f2a5fefb492d1e39793499"
-SRC_URI[kernel.sha256sum] = "85fb308a8a204e4913e078d50ac94dad05a6aca9cacfe5d6b6fbfbb903f70708"
-SRC_URI[kernelpatch.md5sum] = "b236278e10577cb8d172c71ff84e31f6"
-SRC_URI[kernelpatch.sha256sum] = "1bf802cbc3f16a3bdf1a05a3a089135a31f6d3dd031314a44fa4d4fc06cef662"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/linux-${PV}/COPYING;md5=bbea815ee2795b2f4230826c0c6b8814"
+SRC_URI[kernel.sha256sum] = "e7f75186aa0642114af8f19d99559937300ca27acaf7451b36d4f9b0f85cf1f5"
+SRC_URI[kernelpatch.sha256sum] = "6e9055de7beda40257b595b90dd0627decfd84ab0f757e70211d01e5fe661bd8"
 
-DEPENDS += "flex-native bison-native openssl-native coreutils-native"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/linux-${PV}/COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
+
+DEPENDS += "flex-native bison-native openssl-native coreutils-native gmp-native"
 
 # By default, kernel.bbclass modifies package names to allow multiple kernels
 # to be installed in parallel. We revert this change and rprovide the versioned
