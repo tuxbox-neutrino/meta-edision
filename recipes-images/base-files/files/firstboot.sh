@@ -26,8 +26,7 @@ fi
 swap_device=$(blkid -t  PARTLABEL="swap" -o device | head -n1)
 [ -z "$swap_device" ] && echo "no swap device found!"
 if [ -n "$swap_device" ]; then
-	mkswap "$swap_device"
-	swapon "$swap_device"
+	(cat /proc/swaps | grep -q "$swap_device" || swapon "$swap_device") || (mkswap "$swap_device" && swapon "$swap_device")
 	grep -q "$swap_device" /etc/fstab || echo "$swap_device none swap defaults 0 0" >> /etc/fstab
 fi
 
