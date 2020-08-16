@@ -156,8 +156,8 @@ index 000000000000..34379e14a45c
 +    V3D_RegisterDisplayPlatform(&s_platformHandle, EGL_DEFAULT_DISPLAY);
 +
 +    struct fb_var_screeninfo vinfo;
-+    int xres = 720;
-+    int yres = 576;
++    int xres = 1280;
++    int yres = 720;
 +    int bits_per_pixel = 32;
 +    int fd = qt_safe_open("/dev/fb0", O_RDWR, 0);
 +    if (fd != -1) {
