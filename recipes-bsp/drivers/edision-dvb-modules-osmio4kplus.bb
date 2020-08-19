@@ -1,12 +1,13 @@
 
-SRCDATE = "20200810"
-KOFILES = "brcmstb-${MACHINE} ci si2183 avl6862 avl6261"
+SRCDATE = "20200819"
+KOFILES = "brcmstb-${MACHINE} brcmstb-decoder ci si2183 avl6862 avl6261"
 
 require edision-dvb-modules.inc
 
-SRC_URI[sha256sum] = "5d98f73801e90277ada356a28e6848b7d6218061f8cac3b5ed7a8cc239073f9d"
+SRC_URI[sha256sum] = "1d07f385ffc9510c38a3905ecf8dd56591a361d7ae19b9204df7067d1e017b15"
 
 PROVIDES = "virtual/dvb-driver"
 RPROVIDES_${PN} = "virtual/dvb-driver"
 
 COMPATIBLE_MACHINE = "osmio4kplus"
+
