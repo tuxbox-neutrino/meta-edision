@@ -44,6 +44,9 @@ python __anonymous () {
         d.setVar("HEADER_FETCH_VER", "2.6")
 }
 
+MAJ_VER = "${@oe.utils.trim_version("${PV}", 2).split('.')[0]}"
+MIN_VER = "${@oe.utils.trim_version("${PV}", 2).split('.')[1]}"
+
 inherit kernel-arch pkgconfig multilib_header
 
 KORG_ARCHIVE_COMPRESSION ?= "xz"
