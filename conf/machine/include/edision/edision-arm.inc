@@ -41,4 +41,14 @@ KERNEL_IMAGETYPE = "zImage"
 
 require conf/machine/include/arm/arch-arm64.inc
 
+##preferred providers
+PREFERRED_PROVIDER_virtual/kernel = "linux-edision"
+PREFERRED_PROVIDER_virtual/neutrino = "neutrino-mp"
+PREFFERED_PROVIDER_virtual/libstb-hal = "libstb-hal"
+PREFFERED_PROVIDER_virtual/dvb-driver = "edision-dvb-modules-${MACHINE}"
+PREFFERED_PROVIDER_virtual/screengrabber = "grab"
+PREFERRED_PROVIDER_virtual/egl ?= "edision-libv3d"
+PREFERRED_PROVIDER_virtual/libgles2 ?= "edision-libv3d"
+
+PREFERRED_VERSION_linux-libc-headers = "5.8"
 
