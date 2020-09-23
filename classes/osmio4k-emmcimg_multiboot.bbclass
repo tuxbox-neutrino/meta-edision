@@ -68,7 +68,7 @@ image_packaging() {
     cp ${KERNEL_IMAGETYPE} ${IMAGEDIR}/${KERNEL_FILE}
     echo ${IMAGE_NAME} > ${IMAGEDIR}/imageversion
     zip ${IMAGE_NAME}_flavour_${FLAVOUR}_ofgwrite.zip ${IMAGEDIR}/*
-    ln -sf ${IMAGE_NAME}_flavour_${FLAVOUR}_ofgwrite.zip ${IMAGENAME}_ofgwrite.zip
+    ln -sf ${IMAGE_NAME}_flavour_${FLAVOUR}_ofgwrite.zip ${IMAGE_NAME}_ofgwrite.zip
     rm -Rf ${IMAGEDIR}
     
     cd ${DEPLOY_DIR_IMAGE}
@@ -79,7 +79,7 @@ image_packaging() {
     echo ${IMAGE_NAME} > ${DEPLOY_DIR_IMAGE}/imageversion
     echo "rename this file to 'force' to force an update without confirmation" > ${IMAGEDIR}/noforce
     zip ${IMAGE_NAME}_flavour_${FLAVOUR}_usb.zip ${IMAGEDIR}/*
-    ln -sf ${IMAGE_NAME}_flavour_${FLAVOUR}_usb.zip ${IMAGENAME}_usb.zip
+    ln -sf ${IMAGE_NAME}_flavour_${FLAVOUR}_usb.zip ${IMAGE_NAME}_usb.zip
     rm -f ${DEPLOY_DIR_IMAGE}/*.tar
     rm -f ${DEPLOY_DIR_IMAGE}/*.ext4
     rm -f ${DEPLOY_DIR_IMAGE}/*.manifest
