@@ -5,7 +5,7 @@ FLASHSIZE = "2048"
 BRAND_OEM = "edision"
 MACHINE_BRAND = "Edision"
 MACHINE_NAME = "${MACHINE}"
-IMAGE_LINK = "${IMAGE_NAME}-${MACHINE}"
+
 MTD_ROOTFS = "mmcblk1p3"
 MTD_KERNEL = "mmcblk1p2"
 KERNEL_FILE = "kernel.bin"
