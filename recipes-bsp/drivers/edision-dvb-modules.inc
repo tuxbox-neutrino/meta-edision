@@ -3,7 +3,7 @@ SECTION = "base"
 PRIORITY = "required"
 LICENSE = "CLOSED"
 PACKAGE_ARCH = "${MACHINE}"
-KV = "5.8.0"
+KV = "5.9.0"
 PV = "${KV}+${SRCDATE}"
 PR = "r0"
 

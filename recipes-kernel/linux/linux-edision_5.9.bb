@@ -2,7 +2,7 @@ DESCRIPTION = "Linux kernel for ${MACHINE}"
 SECTION = "kernel"
 LICENSE = "GPLv2"
 
-KERNEL_RELEASE = "5.8.0"
+KERNEL_RELEASE = "5.9.0"
 
 inherit kernel machine_kernel_pr
 
@@ -11,8 +11,8 @@ MACHINE_KERNEL_PR_append = ".1"
 PROVIDES  = "virtual/kernel"
 RPROVIDES_${PN} = "virtual/kernel"
 
-SRC_URI[kernel.sha256sum] = "e7f75186aa0642114af8f19d99559937300ca27acaf7451b36d4f9b0f85cf1f5"
-SRC_URI[kernelpatch.sha256sum] = "6e9055de7beda40257b595b90dd0627decfd84ab0f757e70211d01e5fe661bd8"
+SRC_URI[kernel.sha256sum] = "3239a4ee1250bf2048be988cc8cb46c487b2c8a0de5b1b032d38394d5c6b1a06"
+SRC_URI[kernelpatch.sha256sum] = "017be1b2333f75d86e05092f0cb50d37c4b5fe023798f8945a8ce2b95c3f98aa"
 
 LIC_FILES_CHKSUM = "file://${WORKDIR}/linux-${PV}/COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 
