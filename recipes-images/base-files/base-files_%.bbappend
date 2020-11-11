@@ -12,6 +12,7 @@ SRC_URI_append += " \
 	file://mnt-rootfs3.mount \
 	file://mnt-rootfs4.mount \
 	file://mount.sh \
+	file://fstab \
 "
 
 do_install_append() {
