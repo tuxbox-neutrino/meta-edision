@@ -50,5 +50,5 @@ PREFFERED_PROVIDER_virtual/screengrabber = "grab"
 PREFERRED_PROVIDER_virtual/egl ?= "edision-libv3d"
 PREFERRED_PROVIDER_virtual/libgles2 ?= "edision-libv3d"
 
-PREFERRED_VERSION_linux-libc-headers = "5.8"
+PREFERRED_VERSION_linux-libc-headers = "5.9"
 
