@@ -12,5 +12,5 @@ SRC_URI_append = "\
     file://0001-kbuild-install_headers.sh-Strip-_UAPI-from-if-define.patch \
 "
 
-SRC_URI[sha256sum] = "e7f75186aa0642114af8f19d99559937300ca27acaf7451b36d4f9b0f85cf1f5"
+SRC_URI[sha256sum] = "3239a4ee1250bf2048be988cc8cb46c487b2c8a0de5b1b032d38394d5c6b1a06"
 
