@@ -1,9 +1,9 @@
-SRCDATE = "20201013"
+SRCDATE = "20201120"
 KOFILES = "brcmstb-${MACHINE} brcmstb-decoder ci si2183 avl6862 avl6261"
 
 require edision-dvb-modules.inc
 
-SRC_URI[sha256sum] = "e8ceacaeb7ca7b385730749a42a39039f7f7037da974de76b7b48e6420c8bfc4"
+SRC_URI[sha256sum] = "fb2c55e4d246a44be46e890a6ffdd7efc2d40667179ab501d976d66cfa54e8c5"
 
 PROVIDES = "virtual/dvb-driver"
 RPROVIDES_${PN} = "virtual/dvb-driver"
