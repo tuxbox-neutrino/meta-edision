@@ -30,6 +30,12 @@ if [ -n "$swap_device" ]; then
 	grep -q "$swap_device" /etc/fstab || echo "$swap_device none swap defaults 0 0" >> /etc/fstab
 fi
 
+echo "change hostname in /etc/hosts & /etc/hostname"
+OLDHOST=`hostname`
+NEWHOST=$OLDHOST-`echo $(($RANDOM % 100+1000))`
+sed -i "s/$OLDHOST/$NEWHOST/g" /etc/hosts
+sed -i "s/$OLDHOST/$NEWHOST/g" /etc/hostname
+
 echo "first boot script work done"
 #job done, remove it from systemd services
 systemctl disable firstboot.service
