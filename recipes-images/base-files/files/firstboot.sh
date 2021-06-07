@@ -30,11 +30,11 @@ if [ -n "$swap_device" ]; then
 	grep -q "$swap_device" /etc/fstab || echo "$swap_device none swap defaults 0 0" >> /etc/fstab
 fi
 
-echo "change hostname in /etc/hosts & /etc/hostname"
-OLDHOST=`hostname`
-NEWHOST=$OLDHOST-`echo $(($RANDOM % 100+1000))`
-sed -i "s/$OLDHOST/$NEWHOST/g" /etc/hosts
-sed -i "s/$OLDHOST/$NEWHOST/g" /etc/hostname
+box_model=$(grep "^box_model=" /etc/image-version | cut -d'=' -f2)
+hwaddr=$(ifconfig eth0 | awk '/HWaddr/ { split($5,v,":"); print v[5] v[6] }')
+hname=${box_model}-${hwaddr}
+echo "${hname}" > /etc/hostname
+hostname ${hname}
 
 echo "first boot script work done"
 #job done, remove it from systemd services
